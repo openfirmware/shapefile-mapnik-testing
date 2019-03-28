@@ -23,6 +23,9 @@ I use OGR2OGR from GDAL to convert the source shapefile to different projections
 * 4326 to 3573
 * 4326 to 4326-clipped
 * 4326-clipped to 3573-clipped
+* 4326 to 4326 (fixed geometries) to 4326 (fixed and clipped)
+
+Note that GDAL **requires** `libspatialite`, and that `libspatialite` **must** be compiled with `liblwgeom` support. This provides `ST_MakeValid()` to GDAL, which is used to fix geometries.
 
 ## Results
 
