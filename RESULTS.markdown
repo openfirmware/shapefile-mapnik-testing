@@ -7,6 +7,8 @@ SOURCE SHAPEFILE
 ||
 ogr2ogr REPROJECT TO EPSG:4326
 ||
+ogr2ogr FIX GEOMETRIES USING ST_MAKEVALID (OPTIONAL)
+||
 ogr2ogr CLIP TO BOUNDS (OPTIONAL)
 ||
 ogr2ogr REPROJECT TO EPSG:3573 (OPTIONAL)
@@ -55,3 +57,11 @@ GDAL projected to 4326, geometries fixed using `ST_MakeValid`, then clipped. Map
 ![renders/project-4326-fixed-clipped.jpg](renders/project-4326-fixed-clipped.jpg)
 
 All the islands are missing. No.
+
+## To 4326, Fix, Clip, to 3573
+
+GDAL projected to 4326, geometries fixed, clipped to North America (rough), then to 3573.
+
+![renders/project-4326-fixed-clipped-3573.jpg](renders/project-4326-fixed-clipped-3573.jpg)
+
+Looks good.

@@ -52,3 +52,6 @@ transform "data/4326-clipped/$NAME.shp" "data/4326-clipped-3573" "EPSG:3573"
 # 4326 to fixed
 validify "data/4326/$NAME.shp" "data/4326-fixed"
 clip "data/4326-fixed/$NAME.shp" "data/4326-fixed-clipped"
+
+# fixed-clipped  to 3573
+transform "data/4326-fixed-clipped/$NAME.shp" "data/4326-fixed-clipped-3573" "EPSG:3573"
