@@ -30,3 +30,12 @@ Note that GDAL **requires** `libspatialite`, and that `libspatialite` **must** b
 ## Results
 
 See [RESULTS.markdown](RESULTS.markdown).
+
+## License
+
+Preview images generated using data from OpenStreetMap contributors.
+
+## Author
+
+James Badger ([@openfirmware](https://github.com/openfirmware))
+
