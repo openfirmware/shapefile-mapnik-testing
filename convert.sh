@@ -34,6 +34,16 @@ function validify {
 	fi
 }
 
+# 1) Input file
+# 2) Output directory
+function segmentize {
+	mkdir -p "$2"
+	filename=$(basename "$1")
+	if [ ! -f "$2/$filename" ]; then
+		ogr2ogr -segmentize 0.5 "$2/$filename" $1
+	fi
+}
+
 # 3857 to 4326
 transform $ORIGINAL "data/4326" "EPSG:4326"
 
@@ -53,5 +63,11 @@ transform "data/4326-clipped/$NAME.shp" "data/4326-clipped-3573" "EPSG:3573"
 validify "data/4326/$NAME.shp" "data/4326-fixed"
 clip "data/4326-fixed/$NAME.shp" "data/4326-fixed-clipped"
 
-# fixed-clipped  to 3573
+# fixed-clipped to segmented
+segmentize "data/4326-fixed-clipped/$NAME.shp" "data/4326-segmented"
+
+# fixed-clipped to 3573
 transform "data/4326-fixed-clipped/$NAME.shp" "data/4326-fixed-clipped-3573" "EPSG:3573"
+
+# segmented to 3573
+transform "data/4326-segmented/$NAME.shp" "data/4326-segmented-3573" "EPSG:3573"
