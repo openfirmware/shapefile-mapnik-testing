@@ -114,3 +114,8 @@ Close, but most of the islands are missing!
 
 Looks good.
 
+## Summary
+
+It seems that having Mapnik re-project the shapefile is unpredictable, and that GDAL should be doing the re-projections instead. It may be possible that the source data is not completely valid, but sometimes that is all you get.
+
+Mapnik can handle *near* projections, so going from EPSG:3573 to EPSG:3576 is no problem. I have also had success using Quantum GIS, but I cannot automate that into a script and deploy it on a server.
