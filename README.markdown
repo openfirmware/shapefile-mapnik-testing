@@ -25,6 +25,8 @@ I use OGR2OGR from GDAL to convert the source shapefile to different projections
 * 4326-clipped to 3573-clipped
 * 4326 to 4326 (fixed geometries) to 4326 (fixed and clipped)
 
+I use 4326 for two reasons. The first is that I can specify the clipping in latitude/longitude; the second is that I want to use it as the intermediary projection and let Mapnik handle the final projection.
+
 Note that GDAL **requires** `libspatialite`, and that `libspatialite` **must** be compiled with `liblwgeom` support. This provides `ST_MakeValid()` to GDAL, which is used to fix geometries.
 
 ## Results

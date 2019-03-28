@@ -20,7 +20,8 @@ mapnik RENDER IN EPSG:3573
 
 ## Source 3857 to 3573
 
-Mapnik projected to 3573.
+1. Input files are EPSG:3857
+2. Mapnik renders to EPSG:3573
 
 ![renders/project-3857.jpg](renders/project-3857.jpg)
 
@@ -28,7 +29,9 @@ Abysmal. Source geometry around Antarctic is stretched over entire globe; unusab
 
 ## Source 3857 to 4326 to 3573
 
-GDAL projected to 4326. Mapnik projected to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. Mapnik renders to EPSG:3573
 
 ![renders/project-4326.jpg](renders/project-4326.jpg)
 
@@ -36,7 +39,10 @@ Same issue.
 
 ## Source 3857 to 4326 to 3573
 
-GDAL projected to 4326, then to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL reprojects to EPSG:3573
+4. Mapnik renders to EPSG:3573
 
 ![renders/project-3573.jpg](renders/project-3573.jpg)
 
@@ -44,7 +50,11 @@ Still unusable.
 
 ## Source 3857 to 4326 to clipped 4326 to 3573
 
-GDAL projected to 4326, clipped to North America (rough), then to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL applys clip
+4. GDAL reprojects to EPSG:3573
+5. Mapnik renders to EPSG:3573
 
 ![renders/project-4326-clipped-3573.jpg](renders/project-4326-clipped-3573.jpg)
 
@@ -54,7 +64,11 @@ Additional error: the part of the US that is "cut off" should NOT be a straight 
 
 ## Source 3857 to 4326, geometries fixed, to clipped 4326 to 3573
 
-GDAL projected to 4326, geometries fixed using `ST_MakeValid`, then clipped. Mapnik projected to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL fixes geometries
+4. GDAL applys clip
+5. Mapnik renders to EPSG:3573
 
 ![renders/project-4326-fixed-clipped.jpg](renders/project-4326-fixed-clipped.jpg)
 
@@ -62,15 +76,39 @@ All the islands are missing. No.
 
 ## To 4326, Fix, Clip, to 3573
 
-GDAL projected to 4326, geometries fixed, clipped to North America (rough), then to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL fixes geometries
+4. GDAL applys clip
+5. GDAL reprojects to EPSG:3573
+6. Mapnik renders to EPSG:3573
 
 ![renders/project-4326-fixed-clipped-3573.jpg](renders/project-4326-fixed-clipped-3573.jpg)
 
 Looks good. Still has issue with "straight line" cutoff.
 
-## To 4326, Fix, Clip, to 3573
+## To 4326, Fix, Clip, Segment, to 3573
 
-GDAL projected to 4326, geometries fixed, clipped to North America (rough), segmented at 0.5 degree interval, then to 3573.
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL fixes geometries
+4. GDAL applys clip
+5. GDAL applys segmentization
+6. Mapnik renders to EPSG:3573
+
+![renders/project-4326-segmented.jpg](renders/project-4326-segmented.jpg)
+
+Close, but most of the islands are missing!
+
+## To 4326, Fix, Clip, Segment, to 3573
+
+1. Input files are EPSG:3857
+2. GDAL reprojects to EPSG:4326
+3. GDAL fixes geometries
+4. GDAL applys clip
+5. GDAL applys segmentization
+6. GDAL reprojects to EPSG:3573
+7. Mapnik renders to EPSG:3573
 
 ![renders/project-4326-segmented-3573.jpg](renders/project-4326-segmented-3573.jpg)
 
