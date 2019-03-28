@@ -4,7 +4,7 @@
 */
 const child = require('child_process');
 
-let baseProject = "project.mml";
+let baseProject = process.argv[0];
 
 child.spawn(`${__dirname}/node_modules/.bin/kosmtik`, 
     ['serve', baseProject], {
