@@ -23,3 +23,7 @@ I use OGR2OGR from GDAL to convert the source shapefile to different projections
 * 4326 to 3573
 * 4326 to 4326-clipped
 * 4326-clipped to 3573-clipped
+
+## Results
+
+See [RESULTS.markdown](RESULTS.markdown).
