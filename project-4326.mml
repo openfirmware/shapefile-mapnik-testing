@@ -3,13 +3,13 @@ metatile: 2
 name: OpenStreetMap Carto
 description: Source data in 4326, projected to 3573
 bounds: &world
-  - -180
-  - -85.05112877980659
-  - 180
-  - 85.05112877980659
+  - -20037508
+  - -20037508
+  - 20037508
+  - 20037508
 center:
-  - -100
-  - 60
+  - 0
+  - 0
   - 4
 format: png
 interactivity: false
